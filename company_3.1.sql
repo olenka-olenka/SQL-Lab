@@ -871,10 +871,10 @@ INSERT INTO invoice (invoice_id, employee_id, customer_id, payment_method,transa
 
 USE company;
 
-INSERT INTO orders (orders_id, invoice_id, product_id, order_datetime, quantity) VALUES -- можлива помилка у відсутності employee_id та customer_id, можливо так і було заплановано 
-(1,'20220902081028',107,'2022-09-02 08:10:28',5), -- Наведу приклад
-(2,'20220902081028',78,'2022-09-02 11:01:44',1), -- INSERT INTO orders (orders_id, employee_id, invoice_id, product_id, customer_id, order_datetime, quantity) VALUES
-(3,'20220902081028',42,'2022-09-02 14:18:33',1), -- (1,5,'20220902081028',107,86,'2022-09-02 08:10:28',5), і так далі
+INSERT INTO orders (orders_id, invoice_id, product_id, order_datetime, quantity) VALUES -- потрібно видалити employee_id та customer_id з таблиці
+(1,'20220902081028',107,'2022-09-02 08:10:28',5), 
+(2,'20220902081028',78,'2022-09-02 11:01:44',1), 
+(3,'20220902081028',42,'2022-09-02 14:18:33',1), 
 (4,'20220902081028',73,'2022-09-02 16:46:07',2),
 (5,'20220903091341',86,'2022-09-03 09:13:41',3),
 (6,'20220903091341',80,'2022-09-03 16:25:38',4),
@@ -1874,6 +1874,15 @@ INSERT INTO orders (orders_id, invoice_id, product_id, order_datetime, quantity)
 (1000,'20231001081816',91,'2023-10-01 11:58:40',3);
 
 
+ALTER TABLE 
+orders
+DROP COLUMN
+employee_id;
+
+ALTER TABLE 
+orders
+DROP COLUMN
+customer_id;
 
 
 
